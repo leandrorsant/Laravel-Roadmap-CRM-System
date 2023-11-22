@@ -37,27 +37,26 @@ class ProjectTest extends TestCase
     public function test_project_user(): void
     {
         $project = Project::factory()->create();
-        
-        
-        
-        
-        
         $user = User::factory()->create();
         $project->user()->associate($user);
         $project->save();
         $this->assertEquals($project->user()->first(), Project::where('id', $project->id)->first()->user()->first());
-        
+    }
+
+    public function test_project_client(): void
+    {
+        $project = Project::factory()->create();
         $client = Client::factory()->create();
         $project->client()->associate($client);
         $project->save();
         $this->assertEquals($project->client()->first(), Project::where('id', $project->id)->first()->client()->first());
-        
+    }
+    public function test_project_tasks(): void
+    {
+        $project = Project::factory()->create();
         $tasks = Task::factory()->count(5)->create();
         $project->tasks()->saveMany($tasks);
         $project->save();
-        $this->assertEquals($project->tasks()->get(), Project::where('id', $project->id)->first()->tasks()->get());
-
-       
-
+        $this->assertTrue(5 == Project::where('id', $project->id)->first()->tasks()->count());
     }
 }

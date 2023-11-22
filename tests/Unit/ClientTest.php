@@ -14,7 +14,7 @@ class ClientTest extends TestCase
     public function test_create_client(): void
     {
         $client = Client::factory()->create();
-        $this->assertDatabaseCount('clients',$client->id);
+        $this->assertTrue(Client::where('id',$client->id)->first() instanceof Client);
     }
 
     public function test_update_client(): void

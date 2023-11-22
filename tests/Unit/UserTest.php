@@ -13,7 +13,7 @@ class UserTest extends TestCase
     public function test_create_user(): void
     {
         $user = User::factory()->create();
-        $this->assertDatabaseCount('users',$user->id);
+        $this->assertTrue(User::where("id", $user->id)->exists());
     }
 
     public function test_update_user(): void
