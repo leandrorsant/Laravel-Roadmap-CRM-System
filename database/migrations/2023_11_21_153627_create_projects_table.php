@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
             $table->dateTime('deadline');
             $table->integer('status');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('client_id')->constrained();
+            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('client_id')->nullable()->constrained();
             $table->timestamps();
         });
     }
