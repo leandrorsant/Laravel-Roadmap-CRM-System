@@ -10,7 +10,8 @@ class ClientTest extends TestCase
 {
     /**
      * A basic unit test example.
-     */public function test_create_client(): void
+     */
+    public function test_create_client(): void
     {
         $client = Client::factory()->create();
         $this->assertDatabaseCount('clients',$client->id);
@@ -46,7 +47,7 @@ class ClientTest extends TestCase
         $project2 = Project::factory()->create();
 
         $client = Client::factory()->create();
-        
+
         $client->projects()->saveMany([$project1, $project2]);
 
         $this->assertEquals(2, $client->projects()->count());

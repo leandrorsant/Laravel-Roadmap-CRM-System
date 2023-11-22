@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Casts\Status;
+use App\Casts\DateCustom;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -30,6 +31,10 @@ class Project extends Model
     }
 
     protected $casts = [
+        "deadline" => 'datetime:m-d-Y',
         "status"=> Status::class,
     ];
+
+   
+    
 }

@@ -20,7 +20,9 @@ class ProjectFactory extends Factory
             "title" => $this->faker->sentence,
             "description" => $this->faker->realText(500),
             "deadline"=> $this->faker->dateTime,
-            "status" => Status::STATUS_LIST[random_int(0, sizeof(Status::STATUS_LIST))]
+            "status" => Status::STATUS_LIST[random_int(0, sizeof(Status::STATUS_LIST))],
+            "user_id" => null,
+            "client_id"=> null,
         ];
     }
 }
