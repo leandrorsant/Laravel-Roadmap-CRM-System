@@ -2,6 +2,8 @@
 
 namespace Tests\Unit;
 
+use App\Models\Client;
+use App\Models\Project;
 use Database\Factories\UserFactory;
 use Tests\TestCase;
 use App\Models\User;
@@ -39,5 +41,19 @@ class UserTest extends TestCase
         //check if user was deleted
         $user->delete();
         $this->assertEquals(null, User::where('id', $user->id)->first());
+    }
+
+    public function test_user_clients(): void
+    {
+        $user = User::factory()->create();
+
+        $projects = Project::factory()->count(5)->create()->each(function($project){
+            $project->user()->associate(User::factory()->create());
+        });
+
+        foreach ($projects as $p){
+            $p->user()->associate($user);
+        }
+
     }
 }

@@ -65,4 +65,8 @@ class User extends Authenticatable
     public function projects(){
         return $this->hasMany(Project::class);
     }
+
+    public function clients(){
+        return $this->hasManyThrough(Client::class, Project::class,);
+    }
 }

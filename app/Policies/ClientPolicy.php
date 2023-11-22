@@ -13,7 +13,7 @@ class ClientPolicy
      */
     public function viewAny(User $user): Response
     {
-        return Response::allow();  
+        return Response::deny();  
     }
 
     /**
