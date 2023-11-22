@@ -40,7 +40,7 @@ class ProjectTest extends TestCase
         $user = User::factory()->create();
         $project->user()->associate($user);
         $project->save();
-        $this->assertEquals($project->user()->first(), Project::where('id', $project->id)->first()->user()->first());
+        $this->assertTrue($project->user()->first() == Project::where('id', $project->id)->first()->user()->first());
     }
 
     public function test_project_client(): void
