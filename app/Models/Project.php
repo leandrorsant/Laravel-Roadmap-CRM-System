@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Status;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +30,6 @@ class Project extends Model
     }
 
     protected $casts = [
-        "status"=> "Status",
+        "status"=> Status::class,
     ];
 }
