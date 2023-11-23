@@ -23,6 +23,13 @@ return new class extends Migration
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
         });
+
+        $user = new App\Models\User;
+        $user->name = "Admin";
+        $user->password = Hash::make('12345678');
+        $user->is_admin = true;
+        $user->email = 'admin@admin.com';
+        $user->save();
     }
 
     /**

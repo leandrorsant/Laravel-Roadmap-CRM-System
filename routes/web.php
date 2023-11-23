@@ -35,8 +35,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
+
+    Route::resource('/clients', ClientController::class);
+    Route::resource('/users', UserController::class);
+    Route::resource('/projects', ProjectController::class);
 });
 
-Route::resource('/clients', ClientController::class);
-Route::resource('/users', UserController::class);
-Route::resource('/projects', ProjectController::class);
