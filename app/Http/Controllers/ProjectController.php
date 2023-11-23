@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ProjectController extends Controller
 {
@@ -12,8 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $project = Project::all();
-        return $project->toJson();
+        return Inertia::render('Project/Index', ['projects' => Project::all()]);
     }
 
     /**
