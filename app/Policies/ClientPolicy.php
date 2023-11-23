@@ -21,7 +21,7 @@ class ClientPolicy
      */
     public function view(User $user, Client $client): Response
     {
-        return Response::allow();  
+        return Response::deny();  
     }
 
     /**
@@ -29,7 +29,7 @@ class ClientPolicy
      */
     public function create(User $user): Response
     {
-        return Response::allow();  
+        return Response::deny();  
     }
 
     /**
@@ -37,7 +37,7 @@ class ClientPolicy
      */
     public function update(User $user, Client $client): Response
     {
-        return Response::allow();  
+        return Response::deny();   
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientPolicy
      */
     public function delete(User $user, Client $client): Response
     {
-        return Response::allow();  
+        return Response::deny();    
     }
 
     /**
@@ -53,7 +53,7 @@ class ClientPolicy
      */
     public function restore(User $user, Client $client): Response
     {
-        return Response::allow();  
+        return Response::deny();   
     }
 
     /**
@@ -61,6 +61,6 @@ class ClientPolicy
      */
     public function forceDelete(User $user, Client $client): Response
     {
-        return Response::allow();  
+        return Response::deny();   
     }
 }
