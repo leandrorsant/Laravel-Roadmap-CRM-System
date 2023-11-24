@@ -37,7 +37,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return "(show) ".$project->title;
     }
 
     /**
@@ -53,7 +53,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        return "(update) ".$project->name;
     }
 
     /**
@@ -61,6 +61,6 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        return $project->title;
+        return "(delete)".$project->title;
     }
 }
