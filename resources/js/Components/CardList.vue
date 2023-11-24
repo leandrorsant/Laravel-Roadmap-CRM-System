@@ -19,12 +19,7 @@ defineProps({
                         {{ current.name ? current.name : current.title }}
                         <div class="float-right inline-block">
                             <button class="bg-blue-400 text-white mr-2 p-1 rounded-md hover:bg-blue-800">Edit</button>
-                            <!-- <form v-if="deleteRoute" :action="route('projects.update', current)" method="post"> -->
-                                <!-- <input type="hidden" name="_method" value="PUT"> -->
-                                <!-- <input type="hidden" name="_token" :value="csrf"> -->
-                                <!-- <button type="submit" class="bg-red-600 text-white p-1 rounded-md hover:bg-red-800">Delete</button> -->
-                            <!-- </form> -->
-                            <!-- <Link method="delete" as="button" type="button" :href="route(deleteRoute, {project: current}, )" class="bg-red-600 text-white p-1 rounded-md hover:bg-red-800">Delete</Link> -->
+                            <Link v-if="deleteRoute" method="delete" as="button" type="button" :href="route(deleteRoute, current, )" class="bg-red-600 text-white p-1 rounded-md hover:bg-red-800">Delete</Link>
                         </div>
                     </div>
                 </div>
