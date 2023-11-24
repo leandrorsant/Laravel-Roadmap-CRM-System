@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import CardList from '@/Components/CardList.vue';
 
 defineProps({
     projects: Object
@@ -14,14 +15,6 @@ defineProps({
                 Projects
             </h2>
         </template>
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
-                    <div v-for="project in projects">
-                        {{ project.title }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <CardList  :objectList=projects deleteRoute="projects.destroy"></CardList>
     </AppLayout>
 </template>

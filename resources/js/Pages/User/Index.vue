@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import CardList from '@/Components/CardList.vue';
 
 defineProps({
     users: Object
@@ -14,14 +15,6 @@ defineProps({
                 Users
             </h2>
         </template>
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-10">
-                    <div v-for="user in users">
-                        {{ user.name }}
-                    </div>
-                </div>
-            </div>
-        </div>
+        <CardList  :objectList=users></CardList>
     </AppLayout>
 </template>
