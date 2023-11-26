@@ -15,6 +15,6 @@ defineProps({
                 Users
             </h2>
         </template>
-        <CardList :objectList=users deleteRoute="clients.destroy" editRoute="/users/"></CardList>
+        <CardList :objectList=users deleteRoute="users.destroy" editRoute="/users/"></CardList>
     </AppLayout>
 </template>
