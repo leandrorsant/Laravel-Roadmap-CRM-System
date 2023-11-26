@@ -30,6 +30,13 @@ return new class extends Migration
         $user->is_admin = true;
         $user->email = 'admin@admin.com';
         $user->save();
+
+        $user = new App\Models\User;
+        $user->name = "User";
+        $user->password = Hash::make('12345678');
+        $user->is_admin = false;
+        $user->email = 'user@user.com';
+        $user->save();
     }
 
     /**
