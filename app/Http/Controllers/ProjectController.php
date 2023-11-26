@@ -54,6 +54,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        $this->authorize("update", $project);
         $project = Project::where(['id' => $request->id])->first();
         $project->title = $request->name;
         $project->save();
@@ -64,6 +65,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        $this->authorize('delete', $project);
         $project->delete();
     }
 }
