@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TaskController extends Controller
 {
@@ -12,8 +13,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $task = Task::all();
-        return $task->toJson();
+        return Inertia::render('Task/Index', ['tasks' => Task::all()]);
     }
 
     /**
@@ -53,7 +53,9 @@ class TaskController extends Controller
      */
     public function update(Request $request, Task $task)
     {
-        //
+        $task = Task::where(['id' => $request->id])->first();
+        $task->title = $request->name;
+        $task->save();
     }
 
     /**

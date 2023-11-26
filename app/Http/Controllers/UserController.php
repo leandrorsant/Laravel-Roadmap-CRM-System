@@ -53,7 +53,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user = User::where(['id' => $request->id])->first();
+        $user->name = $request->name;
+        $user->save();
     }
 
     /**

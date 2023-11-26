@@ -53,7 +53,9 @@ class ClientController extends Controller
      */
     public function update(Request $request, Client $client)
     {
-        //
+        $client = Client::where(['id' => $request->id])->first();
+        $client->name = $request->name;
+        $client->save();
     }
 
     /**

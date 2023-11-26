@@ -53,7 +53,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        return "(update) ".$project->name;
+        $project = Project::where(['id' => $request->id])->first();
+        $project->title = $request->name;
+        $project->save();
     }
 
     /**
