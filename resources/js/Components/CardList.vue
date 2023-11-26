@@ -1,5 +1,6 @@
 <script setup>
 import AppLayout from '@/Layouts/AppLayout.vue';
+import Pagination from "./Pagination.vue"
 import { reactive } from 'vue'
 import { router } from '@inertiajs/vue3'
 import { Link } from '@inertiajs/vue3'
@@ -29,7 +30,7 @@ function submit(current) {
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white shadow-xl sm:rounded-lg p-10">
                 <table class="w-full table bg-blue-50">
-                    <div :id="index" class="bg-gray-200 m-2 p-4 rounded-md min-h-fit" v-for="(current, index) in objectList" :key="current.id">
+                    <div :id="index" class="bg-gray-200 m-2 p-4 rounded-md min-h-fit" v-for="(current, index) in objectList.data" :key="current.id">
                         <tr class="w-full" > <td>  
                         <form v-if="editRoute"  @submit.prevent="$event=>{
                                 submit(current)
@@ -62,5 +63,6 @@ function submit(current) {
                 </table>
                 </div>
             </div>
+            <Pagination :elements="objectList"></Pagination>
         </div>
 </template>

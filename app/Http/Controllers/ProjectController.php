@@ -13,7 +13,8 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return Inertia::render('Project/Index', ['projects' => Project::all()]);
+
+        return Inertia::render('Project/Index', ['projects' => Project::paginate(15)]);
     }
 
     /**
