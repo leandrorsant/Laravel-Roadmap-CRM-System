@@ -3,7 +3,9 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import CardList from '@/Components/CardList.vue';
 
 defineProps({
-    users: Object
+    users: Object,
+    deleteRoute: String,
+    editRoute: String
 });
 </script>
 
@@ -15,6 +17,6 @@ defineProps({
                 Users
             </h2>
         </template>
-        <CardList :objectList=users deleteRoute="users.destroy" editRoute="/users/"></CardList>
+        <CardList :objectList=users :deleteRoute="deleteRoute" :editRoute='editRoute'></CardList>
     </AppLayout>
 </template>

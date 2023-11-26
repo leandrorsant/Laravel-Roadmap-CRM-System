@@ -44,7 +44,10 @@ class UserPolicy
      */
     public function delete(User $user, User $model): Response
     {
-        return Response::allow();  
+        if(auth()->user()->is_admin){
+            return Response::allow();
+        }
+        return Response::deny();  
     }
 
     /**

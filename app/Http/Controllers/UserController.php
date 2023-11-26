@@ -13,7 +13,14 @@ class UserController extends Controller
      */
     public function index()
     {
-        return Inertia::render('User/Index', ['users' => User::paginate(15)]);
+        $deleteRoute = 'users.destroy';
+        $editRoute ='/users/';
+
+        if(auth()->user()->cannot('delete', new User())) {
+            $deleteRoute = null;
+        }
+        
+        return Inertia::render('User/Index', ['users' => User::paginate(15), 'deleteRoute'=>$deleteRoute, 'editRoute'=> $editRoute]);
     }
 
     /**
