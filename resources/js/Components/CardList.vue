@@ -29,37 +29,37 @@ function submit(current) {
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white shadow-xl sm:rounded-lg p-10">
-                <table class="w-full table bg-blue-50">
-                    <div :id="index" class="bg-gray-200 m-2 p-4 rounded-md min-h-fit" v-for="(current, index) in objectList.data" :key="current.id">
-                        <tr class="w-full" > <td>  
-                        <form v-if="editRoute"  @submit.prevent="$event=>{
-                                submit(current)
-                                this.$refs['input'+current.id][0].classList.toggle('hidden')
-                                this.$refs['p'+current.id][0].classList.toggle('hidden')
-                            }" 
-                            :ref="'input'+current.id" class="hidden"
-                        >
-                            <input :placeholder="current.title? current.title:current.name" v-model="form.name" class="w-full rounded-md"/>
-                            <button type="submit" class="bg-green-400    text-white border-x-gray-950 p-2 m-1 rounded-md">Submit</button>
-                        </form>                     
-                        
-                        <p :id="'p'+current.id" :ref="'p'+current.id">{{ (current.name ? current.name : current.title) }}</p>
-                    </td>
-                    <td>
-                        <span class="m-2">
-                            <button 
-                                v-on:click="$event => {
+                <table :id="index" class="w-full m-2 rounded-md" v-for="(current, index) in objectList.data" :key="current.id">
+                    <tr class="border-2 hover:bg-blue-200 hover:text-gray-800 rounded-md">
+                        <td class="w-4/5 p-4">  
+                            <form v-if="editRoute"  @submit.prevent="$event=>{
+                                    submit(current)
                                     this.$refs['input'+current.id][0].classList.toggle('hidden')
                                     this.$refs['p'+current.id][0].classList.toggle('hidden')
                                 }" 
-                                class="bg-blue-400 text-white mr-2 p-1 rounded-md hover:bg-blue-800"
+                                :ref="'input'+current.id" class="hidden"
                             >
-                                Edit
-                            </button>
-                            <Link v-if="deleteRoute" method="delete" as="button" type="button" :href="route(deleteRoute, current, )" class="bg-red-600 text-white p-1 rounded-md hover:bg-red-800">Delete</Link>
-                        </span></td>
-                        </tr>
-                    </div>
+                                <input :placeholder="current.title? current.title:current.name" v-model="form.name" class="w-full rounded-md"/>
+                                <button type="submit" class="bg-green-400    text-white border-2 p-2 m-1 rounded-md">Submit</button>
+                            </form>
+                            <p :id="'p'+current.id" :ref="'p'+current.id">{{ (current.name ? current.name : current.title) }}</p>
+                        </td>
+                        <td class="text-right">
+                            <span class="m-2">
+                                <button 
+                                    v-on:click="$event => {
+                                        this.$refs['input'+current.id][0].classList.toggle('hidden')
+                                        this.$refs['p'+current.id][0].classList.toggle('hidden')
+                                    }" 
+                                    class="bg-blue-400 text-white mr-2 p-1 rounded-md hover:bg-blue-800"
+                                >
+                                    Edit
+                                </button>
+                                <Link v-if="deleteRoute" method="delete" as="button" type="button" :href="route(deleteRoute, current, )" class="bg-red-600 text-white p-1 rounded-md hover:bg-red-800">Delete</Link>
+                            </span>
+                        </td>
+                    </tr>
+                    
                 </table>
                 </div>
             </div>
