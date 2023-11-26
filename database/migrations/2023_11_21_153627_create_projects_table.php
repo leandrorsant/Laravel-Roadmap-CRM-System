@@ -17,8 +17,8 @@ return new class extends Migration
             $table->longText('description');
             $table->dateTime('deadline');
             $table->integer('status');
-            $table->foreignId('user_id')->nullable()->constrained();
-            $table->foreignId('client_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->foreignId('client_id')->nullable()->nullOnDelete();
             $table->timestamps();
         });
     }

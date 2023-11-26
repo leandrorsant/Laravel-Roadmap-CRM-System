@@ -17,7 +17,7 @@ return new class extends Migration
             $table->longText('description');
             $table->dateTime('deadline');
             $table->integer('status');
-            $table->foreignId('project_id')->nullable()->constrained();;
+            $table->foreignId('project_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }
