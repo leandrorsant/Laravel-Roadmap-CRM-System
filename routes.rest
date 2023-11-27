@@ -21,6 +21,14 @@ Content-Type: application/json
 Accept: application/json
 Authorization: Bearer 1|5CjiooOzhEeIkL8KSMNnjPtV8DYRbnFaIBKgBz9S0397aced
 
-{
+###
+get http://127.0.0.1:8000/api/users
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|5CjiooOzhEeIkL8KSMNnjPtV8DYRbnFaIBKgBz9S0397aced
 
-}
+###
+get http://127.0.0.1:8000/api/projects
+Content-Type: application/json
+Accept: application/json
+Authorization: Bearer 1|5CjiooOzhEeIkL8KSMNnjPtV8DYRbnFaIBKgBz9S0397aced

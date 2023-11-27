@@ -13,6 +13,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (request()->wantsJson()){
+            return User::paginate(15)->toJson();
+        }
+
         $deleteRoute = 'users.destroy';
         $editRoute ='/users/';
 

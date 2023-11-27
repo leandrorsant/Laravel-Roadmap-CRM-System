@@ -13,7 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
+        if (request()->wantsJson()){
+            return Project::paginate(15)->toJson();
+        }
         return Inertia::render('Project/Index', ['projects' => Project::paginate(15)]);
     }
 

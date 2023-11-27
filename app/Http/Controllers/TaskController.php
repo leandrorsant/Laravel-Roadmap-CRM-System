@@ -13,6 +13,9 @@ class TaskController extends Controller
      */
     public function index()
     {
+        if (request()->wantsJson()){
+            return Task::paginate(15)->toJson();
+        }
         return Inertia::render('Task/Index', ['tasks' => Task::paginate(15)]);
     }
 
