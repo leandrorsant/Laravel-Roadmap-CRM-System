@@ -13,6 +13,9 @@ class ClientController extends Controller
      */
     public function index()
     {
+        if (request()->wantsJson()){
+            return Client::paginate(15)->toJson();
+        }
         return Inertia::render('Client/Index', ['clients' => Client::paginate(15)]);
     }
 
