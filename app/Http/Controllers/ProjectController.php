@@ -40,6 +40,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        if (request()->wantsJson()){
+            return $project->toJson();
+        }
         return "(show) ".$project->title;
     }
 
