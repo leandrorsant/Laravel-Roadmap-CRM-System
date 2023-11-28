@@ -48,7 +48,10 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        if(request()->wantsJson()){
+            return $user->toJson();
+        }
+        return "(show) ".$user->name;
     }
 
     /**

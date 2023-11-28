@@ -40,7 +40,10 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        //
+        if(request()->wantsJson()){
+            return $client->toJson();
+        }
+        return '(show) '.$client->name;
     }
 
     /**
